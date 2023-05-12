@@ -1,0 +1,1270 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior:smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    letter-spacing: .05rem;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+.cta:hover {
+    color: white;
+    background-color: crimson;
+}
+
+.section-title{
+    font-size: 4rem;;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+.section-title span{
+    color: crimson;
+}
+
+.brand h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+}
+.brand h1 span{
+    color: crimson;
+}
+
+/* navbar */
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .header {
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30, 30);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+    left: 0%;
+}
+
+#header .nav-list ul a {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+    color: crimson;
+}
+
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(0.6);
+    margin-right: 20px;
+}
+
+#header .hamburger:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: 0.3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+/* end navbar */
+
+/* hero section */
+#hero {
+    background-image: url(https://images.unsplash.com/photo-1657214058406-bb36358fe2f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
+}
+
+#hero .hero{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+
+#hero h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_revel .5s ease forwards;
+    animation-delay: .5s;
+
+}
+
+#hero h1:nth-child(1){
+    animation-delay: .5s;
+}
+
+#hero h1:nth-child(2){
+    animation-delay: 1.5s;
+}
+
+#hero h1:nth-child(3){
+    animation: text_revel_name .5s ease forwards;
+    animation-delay: 2.5s;
+}
+
+#hero h1 span   {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: crimson;
+    animation: text_revel_box 1s ease;
+    animation-delay:0s;
+}
+
+#hero h1:nth-child(1) span{
+    animation-delay: 0s;
+}
+
+#hero h1:nth-child(2) span{
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(3) span{
+    animation-delay: 2s;
+}
+
+
+
+
+/* end hero section */
+
+
+/* services section */
+
+#services .services{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#services .section-title{
+    font-size: 4rem;;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase; 
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+#services .section-title span{
+    color: crimson;
+}
+#services .service-top{
+    width: 500px;
+    margin: 0 auto;
+}
+#services .service-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:40px ;
+}
+
+#services .service-item{
+    flex-basis: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: url(https://cdn.pixabay.com/photo/2014/10/22/17/47/keyboard-498396_960_720.jpg);
+    background-size: cover;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    /* color: white; */
+}
+
+#services .service-item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg,#29323c 0%,#485543 100%);
+    opacity: .9;
+    z-index: -1;
+}
+
+#services .service-bottom .icon{
+    height: 80px;
+    width: 80px;
+    margin-bottom:20px ;
+
+}
+
+#services .service-item h2{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#services .service-item p{
+    color: white;
+    text-align: left;
+}
+
+
+/* end service section */
+
+/* projects section */
+#projects .projects{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#projects .project-header h1{
+    margin-bottom: 50px;
+}
+
+#projects .all-projects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#projects .project-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+#projects .project-info{
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%; 
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image:linear-gradient(60deg,#29323c 0%,#485563 100%) ;
+    color: white;
+
+}
+
+#projects .project-info h1{
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#projects .project-info h2{
+    font-size:1.8rem ;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#projects .project-image{
+    flex-basis: 50%;
+    height: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#projects .project-image:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; 
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg,#29323c 0%,#485543 100%);
+    opacity: 0.4;
+}
+
+#projects .project-image img{
+    transition: .3s ease transform;
+}
+#projects .project-item:hover .project-image img{
+    transform: scale(1.1);
+}
+
+
+/* end project section */
+
+/* about me */
+#about .about{
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+#about .col-left{
+    width: 250px;
+    height: 360px;
+}
+#about .col-right{
+    width: 100%;
+}
+#about .col-right h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin-bottom: 10px;
+}
+#about .col-right p{
+    margin-bottom: 20px;
+}
+
+#about .col-right .cta{
+    color: black;
+    margin-bottom: 50px;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+#about .col-left .about-img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: 7px solid white;
+}
+
+#about .col-left .about-img::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 19px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid crimson;
+    z-index: -1;
+
+}
+/* end about me */
+
+
+/* contact me */
+#contact .contact{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contact .contact-items{
+    width: 300px;
+
+}
+
+#contact .contact-item{
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    transition: .3s ease box-shadow;
+}
+#contact .contact-item:hover{
+    box-shadow: 0px 0px 5px 0 #0000002c;
+}
+#contact .icon{
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#contact .contact-info h1{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#contact .contact-info h2{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+/* end contact me */
+
+/* footer */
+
+#footer {
+    background-image: linear-gradient(60deg,#29323c 0%,#485563 100%);
+
+}
+#footer .footer{
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px ;
+    padding-bottom: 10px;
+}
+
+#footer h2{
+    color: white;
+    font-weight: 100;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#footer .social-icon{
+    display: flex;
+    margin-bottom:30px ;
+}
+#footer .social-item{
+    height: 50px;
+    width: 50px;
+    margin:0 5px;
+}
+#footer .social-item img{
+    filter: grayscale(1);
+    transition: .3s ease filter;
+}
+#footer .social-item img:hover{
+    filter: grayscale(0);
+}
+
+#footer p{
+    color: white;
+    font-size: 1.3rem;
+}
+/* end footer */
+
+@keyframes hamburger_puls {
+    0%{
+        opacity:1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+@keyframes text_revel_box{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+@keyframes text_revel {
+    100%{
+        color: white;
+    }
+}
+
+@keyframes text_revel_name {
+    100%{
+        color: crimson;
+        font-weight: bold;
+    }
+}
+
+/* media query for tablets */
+@media only screen and (min-width:768px) {
+    .cta{
+        font-size: 2rem;
+        padding: 15px 40px;
+    }
+    h1.section-title{
+        font-size: 5rem;
+    }
+
+    /* hero */
+    #hero h1{
+        font-size: 6rem;
+    }
+    /* end hero */
+
+    /* services */
+    #services .service-bottom .service-item{
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+    /* end services */
+
+    /* projects */
+
+    #projects .project-item{
+        flex-direction: row;
+    }
+    #projects .project-item:nth-child(even){
+        flex-direction: row-reverse;
+    }
+    #projects .project-item{
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #projects .all-projects .project-info{
+        height: 100%;
+    }
+    #projects .all-projects .project-image{
+        height: 100%;
+    }
+    /* end projects */
+
+    /* about me */
+    #about .about{
+        flex-direction: row;
+    }
+    #about .col-left{
+        width: 600px;
+        height: 400px;
+        padding-left: 40px;
+    }
+    #about .about .col-left .about-img::after{
+        left: -45px;
+        top: 24px;
+        width: 98%;
+        height: 98%;
+        border: 10px solid crimson;
+    } 
+
+    #about .col-right{
+        text-align: left;
+        padding: 30px;
+
+    }
+    #about .col-right h1{
+        text-align: left;
+    }
+    /* end about me */
+
+    /* contact me */
+    #contact .contact{
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+
+    #contact .contact-items{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        margin: 0;
+        /* justify-content: space-evenly; */
+    }
+
+    #contact .contact-item{
+        margin: 20px;
+        /* flex-direction: row; */
+    }
+
+    #contact .contact-item .icon{
+        height: 100px;
+        width: 100px;
+    }
+    #contact .contact-item .icon img{
+        object-fit: contain;
+    }
+
+    /* end contact me */
+}
+
+@media only screen and (min-width: 1200px) {
+
+    /* header */
+    #header .hamburger {
+        display: none;
+    }
+
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+
+    #header .nav-list ul li a {
+        font-size: 1.8rem;
+    }
+
+    #header .nav-list ul a:after {
+        display: none;
+    }
+
+    /* End header */
+
+    #services .service-bottom .service-item {
+        flex-basis: 22%;
+        margin: 1%;
+    }
+}
+/*end media query for tablets */
+
+
+
+
+
+/* You're now chatting with a random stranger. Say STAND WITH HONG KONG AGAINST THE CCP!
+
+You: hi
+
+Stranger: Hi
+
+You: hru?
+
+Stranger: M or f ?
+
+You: m
+
+Stranger: F
+
+You: how are you?
+
+Stranger: I am fine
+
+Stranger: Which country ?
+
+You: India
+
+Stranger: India me hi habshi bhare pade ha 👻🤦‍♂️😂
+
+Stranger: Same India
+
+You: maybe
+
+Stranger: Age
+
+You: 23
+
+Stranger: Nice
+
+You: which side?
+
+Stranger: North
+
+You: oh
+
+Stranger: Jammu
+
+Stranger: You ??
+
+You: i am from punjab
+
+Stranger: Ohh
+
+Stranger: Ludhiana ??
+
+You: no rajpura
+
+Stranger: Kha pe ha vo
+
+Stranger: Jahlandhar ke ass pass ?
+
+You: nahi ambala ka pass
+
+Stranger: Acha ohh
+
+You: yup
+
+Stranger: Sahi h
+
+Stranger: Abhi kyq krte ho ap
+
+You: study
+
+Stranger: Acha
+
+You: aur aap
+
+Stranger: Masters ?
+
+You: mba
+
+Stranger: BE from cu
+
+Stranger: Ohh
+
+You: chandigarh uni
+
+Stranger: Ya
+
+You: oh great
+
+Stranger: Abhi to yrr bada seen hua pada ha wha pe holidays ha abhi to
+
+You: yeah
+
+You: so tum ghar chala gya hoga
+
+Stranger: Suni hogi news to
+
+Stranger: Ya
+
+You: han news bohot aa rahi ha vaha ki
+
+Stranger: And ghar time pass na horha to omegle🤦‍♂️😂
+
+Stranger: Hq
+
+You: han vo to hai
+
+Stranger: Chlo mami bula rhi ha ab
+
+Stranger: Bye
+
+You: ghar par time hi nahi pass hota
+
+Stranger: Ha
+
+You: too early yaar
+
+Stranger: Are fr ruko
+
+You: okk
+
+Stranger: Yhi rehna
+
+You: hanji
+
+Stranger: Hnni ab bolo
+
+You: jammu main kaha sa ho aap
+
+Stranger: Bakshinagar
+
+You: okk
+
+Stranger: Hq
+
+You: so abhi baki life main kya chal raha hai
+
+You: leaving studies
+
+Stranger: Aur yo kuch ni chql rha singles ki life jase hoti ha vase hi chql rhi hq 🤦‍♂️😂
+
+You: single life achi nahi lagti kya
+
+Stranger: Yrr actually me na khana sath sath kha rhi hu to typing mistake ho skati ha samjh lio😂☝️
+
+Stranger: Are mtlb time pass nai hota baki single life mast ha par time pass ka panga ha 😂
+
+You: okk
+
+You: han vo to rehta hi hai
+
+Stranger: Hq
+
+Stranger: Aur batao
+
+You: bas abhi friends ka sath manali jana ka plan kar raha hai
+
+Stranger: 1 minute ruk jao khana khalu 1 minutes
+
+You: han koi ni
+
+Stranger: Sahi ha yrr tumhara meko to allow hi nai krte yrr parents
+
+Stranger: Chandigarh bhej diyq vohi bhut badi bat ha 😅
+
+Stranger: Extra caring ptq ni aalow ni krte aur jab se yeah kand huq ha university me uske bad se to day out pe jana bhi band hogya yrr kya life hogi hq yr🤦‍♂️
+
+You: kyu yaar
+
+Stranger: Are pta ni yrr kya hi bolu
+
+You: ghar valo ko kaho ki yeh meri galti thodi na hai
+
+Stranger: Mana kr dete ha
+
+You: acha
+
+Stranger: Bada bura hal ha permission wagera bhar Jane ki to bhut mushkil se milti ha meko to
+
+You: vesa jammu main bhi badaia jagha hai kai ghumana ka liya
+
+Stranger: Baki friends to ghumne rehte ha me hi reh jati hu 🥺😔
+
+You: it will be fine
+
+Stranger: Ha par kuch khass ni ha normal normal hi ha
+
+You: when you become independent
+
+You: ans start earning
+
+Stranger: Ya but maje to abhi krne hote ha na dosti wagera ke sath
+
+You: dost bhi jammu sa hi hai ya
+
+You: different states
+
+Stranger: Earning wagera kuch ni meko pta ha enhone shaddi krni hq jab degree khatam hogi
+
+Stranger: Dost to different states se ha
+
+You: that is wrong yaar
+
+Stranger: Ya but ese hi hota ha yr hamare yha 🤦‍♂️
+
+You: you might be just 22 or 23 right now
+
+Stranger: 20
+
+Stranger: But after 3 4 years shadi ho jani
+
+You: yaar 20 hi to hoti hai jab insaan ghum sakta hai
+
+Stranger: Vohi to kon samjhe enko
+
+Stranger: Society hi ese hai North side ki
+
+You: tabhi batao ghar wala kah raha hai marrige kar lo
+
+You: nahi yaar
+
+You: i have two sisters
+
+Stranger: Baki south wale ya fr mid delhi wale area me kaffi open ha log
+
+You: par unki marrige jab unka man tha
+
+You: tabhi ki thi
+
+Stranger: Ohh sahi ha yrr fr to
+
+Stranger: Chlo kya hi kr sakte
+
+Stranger: Against to jane se rhi
+
+You: koi ni you try your best
+
+Stranger: Yq
+
+You: to convince them
+
+Stranger: Ha but nai samjhege ik
+
+Stranger: Social society ka dhyan yha sabse phele rakha jata ha ki vo kya sochega and all
+
+You: this is the major issue in india
+
+Stranger: Chlo chodo yrr kya leke baith gae ha bekr sa topic lagta ha meko
+
+You: apna sa phela dusro ka sochta hai
+
+Stranger: Ha vohi to
+
+You: han koi baat nahi
+
+Stranger: Ha
+
+You: baki anything else you like
+
+Stranger: Baki to meko ice cream pasand ha 😅😂
+
+You: han vo to yaar love hai
+
+Stranger: Ya
+
+You: aur thand mai ice cream to wah kya hi baat hai
+
+Stranger: Acha nature ha apka bytheway
+
+You: thanks
+
+Stranger: Baki ek mila tha abhi esse phele kya kya bakwas kr rha tha nudes wagera ehhwww gandi batein pta ni kha kha se ate ha yeah log
+
+You: yaha ba bohot to bot hi hai
+
+Stranger: And meko batna more kya hota ha bol rha tha I am morf ptq ni meko smajh nai aya
+
+Stranger: Morf bol rha tha kuch
+
+You: baki aur adha pagal hai
+
+You: morf pata nahi
+
+Stranger: Acha
+
+You: chlo chodo usa
+
+Stranger: Ha
+
+You: you like what you are studing right now
+
+Stranger: Nop3s
+
+Stranger: Jabardasti degree
+
+You: okk
+
+Stranger: Bas beta yeha krle fr shaddi ho jaegi teri
+
+Stranger: Frse vohi topic aagyq 🤦‍♂️
+
+You: han
+
+You: its like a loop
+
+Stranger: Ya
+
+Stranger: Apne cse kri hue ha ?
+
+You: hanji
+
+Stranger: Loop se yad aya 😂
+
+Stranger: If else wagera
+
+You: han wahi kiya hai maine bhi
+
+Stranger: Abhi konsi uni me ho ap ?
+
+Stranger: Achq
+
+You: par samaj kam hi aya tha
+
+Stranger: Placement hue thi apki ya fr nqi hue thi ?
+
+You: nahi
+
+Stranger: Acha
+
+Stranger: Ohh
+
+You: then i started pusuing mba
+
+Stranger: Eslie fr MBA kr rhe ho
+
+Stranger: Sahi ha
+
+You: han kah sakta ho
+
+You: bas ek degree chaiye thi
+
+You: mba ka liye
+
+Stranger: Chlo mil jaegi job
+
+Stranger: Ha
+
+You: han hope for the best
+
+Stranger: Yes
+
+You: abhi apka konsa year hai be ka
+
+Stranger: 2
+
+You: okk
+
+Stranger: Hnji
+
+You: baki apko reading wagara badia lagta hai jya
+
+You: kya
+
+Stranger: No
+
+You: okay
+
+Stranger: Ya
+
+Stranger: Your name yo pucha nai 😅etne batein krli name puchna reh gya
+
+You: baki aur kuch aap batana chaye
+
+You: Jatin
+
+You: aur apka
+
+Stranger: Bas yrr yehai ha dukh bhari zindagi suna di upr mene
+
+Stranger: Shruti
+
+You: shruti
+
+You: nice name
+
+Stranger: Ya
+
+Stranger: Thanks😊
+
+You: matlab kya hai iska vasie
+
+Stranger: Idk search nai kiyq kabhi 😅😅
+
+You: okk
+
+Stranger: Ha
+
+Stranger: Jatin means jit kr ana ?
+
+You: abhi tak college life kaisi rahi
+
+Stranger: Bhut bakwass kitne ladke offer leke aate ha par unko y3ha nai pta ki mera baap baitha ha meko mar delegation aagr gf ban gae kisiki to becharo ko mana krna padta ha 😅😂
+
+You: jatin means the lucky ane
+
+Stranger: Ohk nice
+
+You: oh
+
+Stranger: Ha
+
+You: gangsta father
+
+Stranger: Gansta nai ha pqr strict 🤦‍♂️😂😂
+
+Stranger: Ladk3 dost bhi banne se phele sochna padta ha dost banne se phele bhi ab imagine krlo kya life ha
+
+You: yaar vaha pa konsa apka father dekh raha hai
+
+Stranger: Sahi me loop hi ha yeah aa jakr yahi aa jate ha jo topic meko bekr lagta ha
+
+You: toh friends to bna hi sakta ho
+
+You: it happens
+
+Stranger: But Menlo ki aagr pta chal gya kisne bol diya fr kya hoga mera
+
+Stranger: Are ladke dost bhi nai bana sakti ulta samjh lete ha
+
+You: agar life main koi chij achi nahi lagti
+
+Stranger: Ha
+
+You: to har baat usi par aa kar ruk jati hai
+
+Stranger: Ha agree
+
+You: oh
+
+Stranger: Ha
+
+You: yeh to bohot hi jayada strict hai
+
+Stranger: Vohi to yrr
+
+Stranger: Kqbhi kabhi lagta ha ladki hi kyu bani me🤦‍♂️🤦‍♂️
+
+Stranger: Ladka hotq to usko full maje hote ha jha marji jo marji kre
+
+Stranger: Chlo chodo ab bye jana padega ab
+
+You: youo know vesa girls are the beautiful creation of god
+
+Stranger: Ohhh
+
+Stranger: Yes ik that but aagr ese strictness hogi yo kya hi maja hoga
+
+You: it's just really nice talking to you
+
+Stranger: Same this side
+
+You: it will pass somehow
+
+Stranger: Yq
+
+Stranger: Bye 👋
+
+You: bye shruti
+
+Stranger: Bye 👍
+
+Stranger has disconnected. */
+
